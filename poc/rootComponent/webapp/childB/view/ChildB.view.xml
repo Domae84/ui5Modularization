@@ -1,0 +1,15 @@
+<mvc:View controllerName="parent.Parent.childB.controller.ChildB" xmlns:mvc="sap.ui.core.mvc" displayBlock="false" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="ChildB">
+					<content>
+						<Panel headerText="ChildB - Panel" expandable="true" expanded="true">
+							<Text text="ChildB-Content"/>
+						</Panel>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

@@ -1,0 +1,135 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "parent.Parent",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "parent.Parent.view.Parent",
+			"type": "XML",
+			"async": true,
+			"id": "Parent"
+		},
+		"componentUsages": {
+			"childA": {
+				"name": "parent.Parent.childA",
+				"settings": {},
+				"componentData": {},
+				"lazy": true
+			},
+			"childB": {
+				"name": "parent.Parent.childB",
+				"settings": {},
+				"componentData": {},
+				"lazy": true
+			}
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			},
+            "components" : {
+                "parent.Parent.childA" : {
+                },
+                "parent.Parent.childB" : {
+                }
+            }
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "parent.Parent.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "parent.Parent.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "RouteParent",
+					"pattern": "RouteParent",
+					"target": ["TargetParent"]
+				}, {
+					"pattern": "ChildA",
+					"name": "ChildA",
+					"target": ["ChildA"]
+				}, {
+					"pattern": "ChildB",
+					"name": "ChildB",
+					"target": ["ChildB"]
+				}],
+			"targets": {
+				"TargetParent": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Parent",
+					"viewName": "Parent"
+				}, 
+				"ChildA": {
+					"type": "Component",
+					"usage": "childA",
+					"title": "ChildA",
+					"id": "childA"
+				}, 
+				"ChildB": {
+					"type": "Component",
+					"usage": "childB",
+					"title": "ChildB",
+					"id": "childB"
+				}
+			}
+		}
+	}
+}
